@@ -1,6 +1,7 @@
 import unittest, io, sys
 
 from linked_list import LinkedList
+from node import Node
 
 class TestLinkedList(unittest.TestCase):
     def setUp(self):
@@ -25,14 +26,18 @@ class TestLinkedList(unittest.TestCase):
     def test_insert_beginning_empty_list(self):
         self.list.insert_beginning(10)
 
+        self.assertIsInstance(self.list.head, Node) 
         self.assertEqual(self.list.head.data, 10)
+        self.assertIsNone(self.list.head.next)   
         self.assertEqual(self.list._size, 1)
 
     def test_insert_beginning_with_existing_element(self):
         self.list.insert_beginning(5)
         self.list.insert_beginning(10)
 
+        self.assertIsInstance(self.list.head, Node)
         self.assertEqual(self.list.head.data, 10)
+        self.assertIsInstance(self.list.head.next, Node) 
         self.assertEqual(self.list.head.next.data, 5)
         self.assertEqual(self.list._size, 2)
 
@@ -41,8 +46,12 @@ class TestLinkedList(unittest.TestCase):
         self.list.insert_beginning(2)
         self.list.insert_beginning(3)
 
+
+        self.assertIsInstance(self.list.head, Node)
         self.assertEqual(self.list.head.data, 3)
+        self.assertIsInstance(self.list.head.next, Node)
         self.assertEqual(self.list.head.next.data, 2)
+        self.assertIsInstance(self.list.head.next.next, Node)
         self.assertEqual(self.list.head.next.next.data, 1)
         self.assertEqual(self.list._size, 3)
 
@@ -53,15 +62,20 @@ class TestLinkedList(unittest.TestCase):
     def test_insert_end_empty_list(self):
         self.list.insert_end(10)
 
+        self.assertIsInstance(self.list.head, Node)
         self.assertEqual(self.list.head.data, 10)
+        self.assertIsNone(self.list.head.next)
         self.assertEqual(self.list._size, 1)
 
     def test_insert_end_with_existing_element(self):
         self.list.insert_end(5)
         self.list.insert_end(10)
 
+        self.assertIsInstance(self.list.head, Node)
         self.assertEqual(self.list.head.data, 5)
+        self.assertIsInstance(self.list.head.next, Node)
         self.assertEqual(self.list.head.next.data, 10)
+        self.assertIsNone(self.list.head.next.next)
         self.assertEqual(self.list._size, 2)
 
     def test_insert_end_multiple_elements(self):
@@ -69,9 +83,13 @@ class TestLinkedList(unittest.TestCase):
         self.list.insert_end(2)
         self.list.insert_end(3)
 
+        self.assertIsInstance(self.list.head, Node)
         self.assertEqual(self.list.head.data, 1)
+        self.assertIsInstance(self.list.head.next, Node)
         self.assertEqual(self.list.head.next.data, 2)
+        self.assertIsInstance(self.list.head.next.next, Node)
         self.assertEqual(self.list.head.next.next.data, 3)
+        self.assertIsNone(self.list.head.next.next.next)
         self.assertEqual(self.list._size, 3)
 
     # -------------------------

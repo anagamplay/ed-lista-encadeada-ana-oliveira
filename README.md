@@ -29,6 +29,12 @@ Lista encadeada simples composta por nós (`Node`) que armazenam um valor e uma 
 
 - Python 3.12.10
 
+## Como executar
+
+```bash
+python run.py
+```
+
 ## Como executar os testes
 
 ```bash
@@ -41,6 +47,7 @@ python -m unittest discover -s tests
 estrutura-de-dados/
 ├── node.py               # Classe Node
 ├── linked_list.py        # Classe LinkedList
+├── run.py                # Script de demonstração
 └── tests/
     ├── test_node.py      # Testes da classe Node
     └── test_linked_list.py  # Testes da classe LinkedList
